@@ -82,11 +82,11 @@ public class Square {
         xImage = new ImageIcon("Resources/X.png").getImage();
         //Draws the x images
         if(marker.equals(TicTacToe.X_MARKER)){
-            g.drawImage(xImage, x, y, length, length, null);
+            g.drawImage(xImage, x, y, length, length, square);
         }
         //Draws the o images
         else if(marker.equals(TicTacToe.O_MARKER)){
-            g.drawImage(oImage, x, y, length, length, null);
+            g.drawImage(oImage, x, y, length, length, square);
         }
     }
 }

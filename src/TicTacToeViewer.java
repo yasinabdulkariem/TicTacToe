@@ -6,7 +6,6 @@ public class TicTacToeViewer extends JFrame{
     // TODO: Complete this class
 
     private Image xImage, oImage;
-    private Square[][] board;
     private final int WINDOW_WIDTH = 1000;
     private final int WINDOW_HEIGHT = 800;
     private final int TITLE_BAR_HEIGHT = 23;
@@ -16,7 +15,6 @@ public class TicTacToeViewer extends JFrame{
     public TicTacToeViewer(TicTacToe game) {
 
         this.game = game;
-        board = game.getBoard();
         oImage = new ImageIcon("Resources/O.png").getImage();
         xImage = new ImageIcon("Resources/X.png").getImage();
         // Setup the window and the buffer strategy.
@@ -34,9 +32,11 @@ public class TicTacToeViewer extends JFrame{
         return oImage;
     }
     public void drawBoard(Graphics g){
-        for (int i = 0; i < 3; i++){
-            for(int j = 0; j < 3; j++){
-                this.board[i][j].draw(g, start + j * length, start + i * length);
+        if(this.game.getBoard() != null){
+            for (int i = 0; i < 3; i++){
+                for(int j = 0; j < 3; j++){
+                    this.game.getBoard()[i][j].draw(g, start + j * length, start + i * length);
+                }
             }
         }
     }
